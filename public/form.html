@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Study Session</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Schedule a Study Session</h1>
+    </header>
+
+    <main>
+        <form id="studyForm">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" required>
+
+            <label for="date">Study Date:</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" required>
+
+            <label for="priority">Priority:</label>
+            <select id="priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+
+            <button type="submit">Schedule</button>
+        </form>
+
+        <button onclick="window.location.href='index.html'">Back to Home</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Smart Study Scheduler. All rights reserved.</p>
+    </footer>
+
+    <script src="validation.js"></script>
+</body>
+</html>

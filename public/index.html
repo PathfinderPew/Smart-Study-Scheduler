@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Study Scheduler</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
         <h1>Smart Study Scheduler</h1>
         <p>Your personal study assistant</p>
     </header>
-    
+
     <main>
         <section>
             <h2>Get Started</h2>
             <p>Plan and optimize your study schedule with our smart scheduler!</p>
-            <button id="get-started">Get Started</button>
+            <button id="get-started" onclick="window.location.href='form.html'">Get Started</button>
+        </section>
+        <section>
+            <h2>Upcoming Study Sessions</h2>
+            <button id="view-sessions">View Study Sessions</button>
+            <div id="study-list"></div><!-- This is where saved sessions will appear -->
         </section>
 
         <section>
@@ -28,11 +35,12 @@
             </ul>
         </section>
     </main>
-    
+
     <footer>
         <p>&copy; 2025 Smart Study Scheduler. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
