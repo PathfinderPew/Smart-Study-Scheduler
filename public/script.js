@@ -46,3 +46,6 @@ function deleteSession(index) {
     localStorage.setItem("schedule", JSON.stringify(schedule)); // Update Local Storage
     displaySessions(); // Refresh displayed list without reloading the page
 }
+
+
+
