@@ -33,15 +33,17 @@
 
   <!-- MAIN CONTENT -->
   <main>
-    <!-- URL Parameter Display -->
+    <!-- URL Parameter Display (HEAD version) -->
     <section>
       <h2>Welcome</h2>
       <p id="welcome-msg">Welcome to the Smart Study Scheduler!</p>
     </section>
 
-    <!-- BUTTON WITH CSS ANIMATION -->
+    <!-- Combined "Get Started" + short description -->
     <section>
       <h2>Get Started</h2>
+      <p>Plan and optimize your study schedule with our smart scheduler!</p>
+      <!-- We'll use an event listener in script.js to redirect to form.html -->
       <button
         id="get-started"
         class="animate-pulse"
@@ -51,7 +53,24 @@
       </button>
     </section>
 
-    <!-- FETCH DATA FROM JSON (Study Tips) -->
+    <!-- Upcoming Study Sessions (from c4ef016 version) -->
+    <section>
+      <h2>Upcoming Study Sessions</h2>
+      <button id="view-sessions">View Study Sessions</button>
+      <div id="study-list"></div>
+    </section>
+
+    <!-- Features (from c4ef016 version) -->
+    <section>
+      <h2>Features</h2>
+      <ul>
+        <li>Track your study goals</li>
+        <li>Get personalized study times</li>
+        <li>Optimize your productivity</li>
+      </ul>
+    </section>
+
+    <!-- FETCH DATA FROM JSON (Study Tips) (HEAD version) -->
     <section>
       <h2>Study Tips</h2>
       <div id="tips-container" aria-live="polite"></div>

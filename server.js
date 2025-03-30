@@ -11,6 +11,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+// Route to serve the form page (from c4ef016 branch)
+app.get('/form', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'form.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
