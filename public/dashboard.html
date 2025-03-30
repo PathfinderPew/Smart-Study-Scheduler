@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Study Scheduler - Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>Study Dashboard</h1>
+  </header>
+
+  <!-- NAVIGATION (Drop-Down Menu) -->
+  <nav>
+    <ul>
+      <li><a href="index.html" aria-label="Go to Home">Home</a></li>
+      <li class="dropdown">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Menu ▼</a>
+        <ul class="dropdown-content" aria-label="submenu">
+          <li><a href="dashboard.html" aria-label="Go to Dashboard">Dashboard</a></li>
+          <li><a href="validation.html" aria-label="Go to Validation Page">Validation Page</a></li>
+          <li><a href="schedule.html" aria-label="Go to Schedule">Schedule</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- Personalized Greeting (using URL parameter) -->
+    <section>
+      <h2>Welcome Back</h2>
+      <p id="welcome-message">Hello, Student!</p>
+    </section>
+
+    <!-- Data Fetch Example: Motivational Quotes or Study Tips -->
+    <section>
+      <h2>Motivational Quotes</h2>
+      <div id="quotes-container">
+        <!-- Fetched quotes will appear here -->
+      </div>
+      <button id="refresh-quotes">Refresh Quotes</button>
+    </section>
+
+    <!-- Local Storage Example: Study Preferences or Stats -->
+    <section>
+      <h2>Your Study Stats</h2>
+      <p>Focus Level: <span id="focus-level">N/A</span></p>
+      <p>Last Session: <span id="last-session">N/A</span></p>
+      <button id="update-stats">Update My Stats</button>
+    </section>
+
+    <!-- CSS Animation Example: Progress Bar or Animated Element -->
+    <section>
+      <h2>Daily Progress</h2>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="progress-bar-inner"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Smart Study Scheduler. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT (Import as module) -->
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>

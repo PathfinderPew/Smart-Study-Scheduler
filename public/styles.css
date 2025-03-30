@@ -1,46 +1,151 @@
+/* Base reset-like styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* BODY AND GLOBAL STYLES */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
 }
 
+/* HEADER STYLES */
 header {
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
-    text-align: center;
+  background-color: #007bff; 
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
 }
 
-header h1 {
-    margin: 0;
+/* NAVIGATION & DROPDOWN */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  background-color: #222;
 }
 
+nav ul li a {
+  color: #fff;
+  padding: 0.75rem 1rem;
+  display: block;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #333;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 120px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  text-align: left;
+  margin-top: 0.5rem;
+  z-index: 99;
+}
+
+.dropdown-content li a {
+  color: #333;
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-content li a:hover {
+  background-color: #eee;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* MAIN & SECTIONS */
 main {
-    padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 section {
-    margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #222;
-    color: white;
-}
-
+/* BUTTON & ANIMATION */
 button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 button:hover {
-    background-color: #218838;
+  background-color: #218838;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* PROGRESS BAR */
+.progress-bar-outer {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ccc;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.progress-bar-inner {
+  height: 20px;
+  width: 0%; /* Will be changed dynamically via JS */
+  background-color: #28a745;
+  border-radius: 10px;
+  transition: width 1s ease-in-out; /* Smooth animate changes to width */
+}
+
+/* FOOTER */
+footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+  
+  nav ul li a {
+    text-align: center;
+  }
+
+  .dropdown-content {
+    position: static;  /* Stacks below */
+    box-shadow: none;
+  }
+
+  .dropdown-content li a {
+    background-color: #fff;
+  }
 }
