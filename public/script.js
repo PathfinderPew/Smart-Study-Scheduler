@@ -1,11 +1,9 @@
 // File: public/script.js
 
-// We import the tips fetch module (HEAD version)
 import { fetchAndDisplayTips } from './modules/tips.js';
 
-// DOMContentLoaded => Merge logic from both versions
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Handle URL parameters (HEAD feature)
+  // 1. Handle URL parameters
   const params = new URLSearchParams(window.location.search);
   const userName = params.get('user'); // e.g. ?user=John
   const welcomeMsgElem = document.getElementById('welcome-msg');
@@ -14,27 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
     welcomeMsgElem.textContent = `Welcome back, ${userName}!`;
   }
 
-  // 2. Use Local Storage to detect first-time visitors (HEAD feature)
+  // 2. Use Local Storage to detect first-time visitors
   const visitedBefore = localStorage.getItem('visitedBefore');
   if (!visitedBefore) {
     alert('Welcome to the Smart Study Scheduler for the first time!');
     localStorage.setItem('visitedBefore', 'true');
   }
 
-  // 3. Fetch and display tips from JSON (HEAD feature)
+  // 3. Fetch and display tips from JSON
   fetchAndDisplayTips('tips.json', 'tips-container');
 
-  // 4. “Get Started” button => redirect to form.html (c4ef016 version)
+  // 4. “Get Started” button => redirect to form.html
   const getStartedBtn = document.getElementById('get-started');
   if (getStartedBtn) {
     getStartedBtn.addEventListener('click', () => {
-      // Either show an alert or redirect immediately:
-      // alert('You are ready to start scheduling your study sessions!');
       window.location.href = 'form.html';
     });
   }
 
-  // 5. Display upcoming sessions (from c4ef016 version)
+  // 5. Display upcoming sessions
   const scheduleList = document.getElementById('study-list');
   const viewButton = document.getElementById('view-sessions');
 
@@ -60,15 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 6. Event to load sessions from localStorage
   if (viewButton) {
     viewButton.addEventListener("click", displaySessions);
   }
 
-  // Automatically display sessions on load
+  // Automatically load sessions on page load
   displaySessions();
 
-  // 7. Attach delete function to global scope or use event delegation
+  // Provide a global delete function so the inline onclick works
   window.deleteSession = (index) => {
     const schedule = JSON.parse(localStorage.getItem('schedule')) || [];
     schedule.splice(index, 1); 
