@@ -16,20 +16,15 @@
     <p>Your personal study assistant</p>
   </header>
 
-  <!-- NAVIGATION WITH DROP-DOWN MENU -->
-  <nav>
-    <ul>
-      <li><a href="index.html" aria-label="Go to Home">Home</a></li>
-      <li class="dropdown">
-        <a href="#" aria-haspopup="true" aria-expanded="false">Menu ▼</a>
-        <ul class="dropdown-content" aria-label="submenu">
-          <li><a href="dashboard.html" aria-label="Go to Dashboard">Dashboard</a></li>
-          <li><a href="validation.html" aria-label="Go to Validation Page">Validation</a></li>
-          <li><a href="schedule.html" aria-label="Go to Schedule">Schedule</a></li>
-          <!-- NEW LINK TO form.html -->
-          <li><a href="form.html" aria-label="Go to Form Page">Form</a></li>
-        </ul>
-      </li>
+  <!-- In your HTML (index.html, etc.) -->
+  <nav class="navbar">
+    <div class="nav-brand">Smart Scheduler</div>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="validation.html">Validation</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
     </ul>
   </nav>
 
@@ -45,20 +40,19 @@
     <section>
       <h2>Get Started</h2>
       <p>Plan and optimize your study schedule with our smart scheduler!</p>
-      <!-- "Get Started" button that redirects to form.html (handled in script.js) -->
-      <button
-        id="get-started"
-        class="animate-pulse"
-        aria-label="Get Started scheduling your study sessions"
-      >
+      <p><label for="username">Enter Your Name:</label>
+      <input type="text" id="username" placeholder="e.g. Marissa" /></p>
+      <!-- "Get Started" button that redirects to dashboard.html (handled in script.js) -->
+      <button id="get-started" class="pulse-button" aria-label="Get Started scheduling your study sessions">
         Get Started
       </button>
+      
     </section>
 
     <!-- Upcoming Study Sessions -->
     <section>
       <h2>Upcoming Study Sessions</h2>
-      <button id="view-sessions">View Study Sessions</button>
+      <button id="view-sessions" class="pulse-button">View Study Sessions</button>
       <div id="study-list"></div>
     </section>
 

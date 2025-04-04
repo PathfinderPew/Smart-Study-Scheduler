@@ -22,50 +22,30 @@ header {
 }
 
 /* NAVIGATION & DROPDOWN */
-nav ul {
+/* Add to styles.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  padding: 0.75rem;
+}
+.nav-links {
   list-style: none;
   display: flex;
-  justify-content: center;
-  background-color: #222;
+  gap: 1rem;
 }
-
-nav ul li a {
-  color: #fff;
-  padding: 0.75rem 1rem;
-  display: block;
+.nav-links a {
+  color: white;
   text-decoration: none;
 }
-
-nav ul li a:hover {
-  background-color: #333;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
+.burger {
   display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 120px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  text-align: left;
-  margin-top: 0.5rem;
-  z-index: 99;
-}
-
-.dropdown-content li a {
-  color: #333;
-  padding: 0.5rem 1rem;
-}
-
-.dropdown-content li a:hover {
-  background-color: #eee;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
 }
 
 /* MAIN & SECTIONS */
@@ -94,17 +74,6 @@ button:hover {
   background-color: #218838;
 }
 
-/* Pulse Animation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.animate-pulse {
-  animation: pulse 2s infinite;
-}
-
 /* PROGRESS BAR */
 .progress-bar-outer {
   width: 100%;
@@ -122,6 +91,56 @@ button:hover {
   transition: width 1s ease-in-out; /* Smooth animate changes to width */
 }
 
+form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 2rem auto;
+}
+form label {
+  display: inline-block;
+  width: 100px;
+}
+form input, form select {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+  }
+}
+
+.pulse-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  transition: background-color 0.3s;
+}
+
+.pulse-button:hover {
+  background-color: #218838;
+}
+
+
 /* FOOTER */
 footer {
   background-color: #222;
@@ -131,21 +150,20 @@ footer {
 }
 
 /* RESPONSIVE DESIGN */
-@media (max-width: 600px) {
-  nav ul {
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
     flex-direction: column;
+    background: #222;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
   }
-  
-  nav ul li a {
-    text-align: center;
+  .nav-links.active {
+    display: flex;
   }
-
-  .dropdown-content {
-    position: static;  /* Stacks below */
-    box-shadow: none;
-  }
-
-  .dropdown-content li a {
-    background-color: #fff;
+  .burger {
+    display: block;
   }
 }

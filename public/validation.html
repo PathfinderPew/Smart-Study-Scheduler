@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Study Scheduler - Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>Schedule a Study Session</h1>
+    <p>Please fill out the form below. Make sure your selected date is today or in the future.</p>
+  </header>
+
+  <!-- NAVIGATION (Drop-Down Menu) -->
+  <nav class="navbar">
+    <div class="nav-brand">Smart Scheduler</div>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="validation.html">Validation</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+<main>
+    <form id="studyForm">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" required>
+
+        <label for="date">Study Date:</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" required>
+
+        <label for="priority">Priority:</label>
+        <select id="priority">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select>
+
+        <button type="submit" class="pulse-button">Schedule</button>
+
+    </form>
+</main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Smart Study Scheduler. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT (Import as module) -->
+  <script type="module" src="validation.js"></script>
+</body>
+</html>

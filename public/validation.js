@@ -1,3 +1,14 @@
+// Add this to dashboard.js or script.js (whichever loads on all pages)
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.querySelector(".burger");
+  const navLinks = document.querySelector(".nav-links");
+  if (burger && navLinks) {
+    burger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  }
+});
+
 document.getElementById("studyForm").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent page refresh
   

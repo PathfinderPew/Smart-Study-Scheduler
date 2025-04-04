@@ -1,4 +1,14 @@
 // File: public/dashboard.js
+// Add this to dashboard.js or script.js (whichever loads on all pages)
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.querySelector(".burger");
+  const navLinks = document.querySelector(".nav-links");
+  if (burger && navLinks) {
+    burger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+  }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const welcomeMessage = document.getElementById('welcome-message');

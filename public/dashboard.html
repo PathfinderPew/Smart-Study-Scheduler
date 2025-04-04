@@ -13,17 +13,14 @@
   </header>
 
   <!-- NAVIGATION (Drop-Down Menu) -->
-  <nav>
-    <ul>
-      <li><a href="index.html" aria-label="Go to Home">Home</a></li>
-      <li class="dropdown">
-        <a href="#" aria-haspopup="true" aria-expanded="false">Menu ▼</a>
-        <ul class="dropdown-content" aria-label="submenu">
-          <li><a href="dashboard.html" aria-label="Go to Dashboard">Dashboard</a></li>
-          <li><a href="validation.html" aria-label="Go to Validation Page">Validation Page</a></li>
-          <li><a href="schedule.html" aria-label="Go to Schedule">Schedule</a></li>
-        </ul>
-      </li>
+  <nav class="navbar">
+    <div class="nav-brand">Smart Scheduler</div>
+    <button class="burger" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="validation.html">Validation</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
     </ul>
   </nav>
 
@@ -41,7 +38,7 @@
       <div id="quotes-container">
         <!-- Fetched quotes will appear here -->
       </div>
-      <button id="refresh-quotes">Refresh Quotes</button>
+      <button id="refresh-quotes" class="pulse-button">Refresh Quotes</button>
     </section>
 
     <!-- Local Storage Example: Study Preferences or Stats -->
@@ -49,7 +46,7 @@
       <h2>Your Study Stats</h2>
       <p>Focus Level: <span id="focus-level">N/A</span></p>
       <p>Last Session: <span id="last-session">N/A</span></p>
-      <button id="update-stats">Update My Stats</button>
+      <button id="update-stats" class="pulse-button">Update My Stats</button>
     </section>
 
     <!-- CSS Animation Example: Progress Bar or Animated Element -->
