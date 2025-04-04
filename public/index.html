@@ -1,46 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Study Scheduler</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Study Scheduler</title>
+  <!-- Basic accessibility features -->
+  <meta name="description" content="A home page for a Smart Study Scheduler, demonstrating dropdown navigation, animations, responsive design, fetch from JSON, localStorage usage, and more.">
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-    <header>
-        <h1>Smart Study Scheduler</h1>
-        <p>Your personal study assistant</p>
-    </header>
+  <!-- HEADER -->
+  <header>
+    <h1 id="site-title">Smart Study Scheduler</h1>
+    <p>Your personal study assistant</p>
+  </header>
 
-    <main>
-        <section>
-            <h2>Get Started</h2>
-            <p>Plan and optimize your study schedule with our smart scheduler!</p>
-            <button id="get-started" onclick="window.location.href='form.html'">Get Started</button>
-        </section>
-        <section>
-            <h2>Upcoming Study Sessions</h2>
-            <button id="view-sessions">View Study Sessions</button>
-            <div id="study-list"></div><!-- This is where saved sessions will appear -->
-        </section>
+  <!-- NAVIGATION WITH DROP-DOWN MENU -->
+  <nav>
+    <ul>
+      <li><a href="index.html" aria-label="Go to Home">Home</a></li>
+      <li class="dropdown">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Menu ▼</a>
+        <ul class="dropdown-content" aria-label="submenu">
+          <li><a href="dashboard.html" aria-label="Go to Dashboard">Dashboard</a></li>
+          <li><a href="validation.html" aria-label="Go to Validation Page">Validation</a></li>
+          <li><a href="schedule.html" aria-label="Go to Schedule">Schedule</a></li>
+          <!-- NEW LINK TO form.html -->
+          <li><a href="form.html" aria-label="Go to Form Page">Form</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
-        <section>
-            <h2>Features</h2>
-            <ul>
-                <li>Track your study goals</li>
-                <li>Get personalized study times</li>
-                <li>Optimize your productivity</li>
-            </ul>
-        </section>
-    </main>
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- URL Parameter Display (HEAD version) -->
+    <section>
+      <h2>Welcome</h2>
+      <p id="welcome-msg">Welcome to the Smart Study Scheduler!</p>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 Smart Study Scheduler. All rights reserved.</p>
-    </footer>
+    <!-- Combined "Get Started" + short description -->
+    <section>
+      <h2>Get Started</h2>
+      <p>Plan and optimize your study schedule with our smart scheduler!</p>
+      <!-- "Get Started" button that redirects to form.html (handled in script.js) -->
+      <button
+        id="get-started"
+        class="animate-pulse"
+        aria-label="Get Started scheduling your study sessions"
+      >
+        Get Started
+      </button>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Upcoming Study Sessions -->
+    <section>
+      <h2>Upcoming Study Sessions</h2>
+      <button id="view-sessions">View Study Sessions</button>
+      <div id="study-list"></div>
+    </section>
+
+    <!-- Features -->
+    <section>
+      <h2>Features</h2>
+      <ul>
+        <li>Track your study goals</li>
+        <li>Get personalized study times</li>
+        <li>Optimize your productivity</li>
+      </ul>
+    </section>
+
+    <!-- FETCH DATA FROM JSON (Study Tips) -->
+    <section>
+      <h2>Study Tips</h2>
+      <div id="tips-container" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Smart Study Scheduler. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT (Import as module) -->
+  <script type="module" src="script.js"></script>
 </body>
-
 </html>
