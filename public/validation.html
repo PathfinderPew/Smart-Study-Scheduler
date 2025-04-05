@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Smart Study Scheduler - Dashboard</title>
+  <title>Smart Study Scheduler - Validation</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,7 +13,7 @@
     <p>Please fill out the form below. Make sure your selected date is today or in the future.</p>
   </header>
 
-  <!-- NAVIGATION (Drop-Down Menu) -->
+  <!-- NAVIGATION (Burger Menu) -->
   <nav class="navbar">
     <div class="nav-brand">Smart Scheduler</div>
     <button class="burger" aria-label="Menu">&#9776;</button>
@@ -26,35 +26,34 @@
   </nav>
 
   <!-- MAIN CONTENT -->
-<main>
+  <main>
     <form id="studyForm">
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" required>
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" required>
 
-        <label for="date">Study Date:</label>
-        <input type="date" id="date" required>
+      <label for="date">Study Date:</label>
+      <input type="date" id="date" required>
 
-        <label for="time">Time:</label>
-        <input type="time" id="time" required>
+      <label for="time">Time:</label>
+      <input type="time" id="time" required>
 
-        <label for="priority">Priority:</label>
-        <select id="priority">
-            <option value="High">High</option>
-            <option value="Medium">Medium</option>
-            <option value="Low">Low</option>
-        </select>
+      <label for="priority">Priority:</label>
+      <select id="priority">
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
 
-        <button type="submit" class="pulse-button">Schedule</button>
-
+      <button type="submit" class="pulse-button">Schedule</button>
     </form>
-</main>
+  </main>
 
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Smart Study Scheduler. All rights reserved.</p>
   </footer>
 
-  <!-- SCRIPT (Import as module) -->
-  <script type="module" src="validation.js"></script>
+  <!-- SCRIPT (Module not strictly needed) -->
+  <script src="validation.js"></script>
 </body>
 </html>

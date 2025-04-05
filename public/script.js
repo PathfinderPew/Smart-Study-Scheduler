@@ -2,8 +2,9 @@
 
 import { fetchAndDisplayTips } from './modules/tips.js';
 
-// Navigation Drop-down menu to dashboard.js or script.js (whichever loads on all pages)
+// Load once DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
+  // 1. Burger Menu Toggle
   const burger = document.querySelector(".burger");
   const navLinks = document.querySelector(".nav-links");
   if (burger && navLinks) {
@@ -11,34 +12,33 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.classList.toggle("active");
     });
   }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 1. Handle URL parameters
+  // 2. URL Parameter (e.g. ?user=John)
   const params = new URLSearchParams(window.location.search);
-  const userName = params.get('user'); // e.g. ?user=John
+  const userParam = params.get('user'); 
   const welcomeMsgElem = document.getElementById('welcome-msg');
 
-  if (userName && welcomeMsgElem) {
-    welcomeMsgElem.textContent = `Welcome back, ${userName}!`;
+  if (userParam && welcomeMsgElem) {
+    welcomeMsgElem.textContent = `Welcome back, ${userParam}!`;
   }
 
-  // 2. Use Local Storage to detect first-time visitors
+  // 3. Local Storage check for first-time visitors
   const visitedBefore = localStorage.getItem('visitedBefore');
   if (!visitedBefore) {
     alert('Welcome to the Smart Study Scheduler for the first time!');
     localStorage.setItem('visitedBefore', 'true');
   }
 
-  // 3. Fetch and display tips from JSON
+  // 4. Fetch and display tips
   fetchAndDisplayTips('tips.json', 'tips-container');
 
-  // 4: Get Started button now sends to dashboard.html with user's name
+  // 5. “Get Started” => direct to dashboard.html + user’s name
   const getStartedBtn = document.getElementById('get-started');
   if (getStartedBtn) {
     getStartedBtn.addEventListener('click', () => {
       const nameInput = document.getElementById('username').value.trim();
       if (nameInput) {
+        // Pass user param in the URL
         window.location.href = `dashboard.html?user=${encodeURIComponent(nameInput)}`;
       } else {
         alert("Please enter your name before continuing.");
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Display upcoming sessions
+  // 6. Display upcoming sessions from localStorage
   const scheduleList = document.getElementById('study-list');
   const viewButton = document.getElementById('view-sessions');
 
@@ -76,10 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
     viewButton.addEventListener("click", displaySessions);
   }
 
-  // Automatically load sessions on page load
+  // Auto load the sessions on page load
   displaySessions();
 
-  // Provide a global delete function so the inline onclick works
+  // Provide a global delete function
   window.deleteSession = (index) => {
     const schedule = JSON.parse(localStorage.getItem('schedule')) || [];
     schedule.splice(index, 1);

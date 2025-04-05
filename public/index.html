@@ -16,7 +16,7 @@
     <p>Your personal study assistant</p>
   </header>
 
-  <!-- In your HTML (index.html, etc.) -->
+  <!-- NAVIGATION: Horizontal in large screen, burger in small -->
   <nav class="navbar">
     <div class="nav-brand">Smart Scheduler</div>
     <button class="burger" aria-label="Menu">&#9776;</button>
@@ -30,23 +30,28 @@
 
   <!-- MAIN CONTENT -->
   <main>
-    <!-- URL Parameter Display (HEAD version) -->
+    <!-- URL Parameter Display -->
     <section>
       <h2>Welcome</h2>
       <p id="welcome-msg">Welcome to the Smart Study Scheduler!</p>
     </section>
 
-    <!-- Combined "Get Started" + short description -->
+    <!-- Get Started section with user input for URL param -->
     <section>
       <h2>Get Started</h2>
       <p>Plan and optimize your study schedule with our smart scheduler!</p>
-      <p><label for="username">Enter Your Name:</label>
-      <input type="text" id="username" placeholder="e.g. Marissa" /></p>
-      <!-- "Get Started" button that redirects to dashboard.html (handled in script.js) -->
-      <button id="get-started" class="pulse-button" aria-label="Get Started scheduling your study sessions">
+      <p>
+        <label for="username">Enter Your Name:</label>
+        <input type="text" id="username" placeholder="e.g. Marissa" />
+      </p>
+      <!-- "Get Started" button that redirects to dashboard.html (script.js) -->
+      <button
+        id="get-started"
+        class="pulse-button"
+        aria-label="Get Started scheduling your study sessions"
+      >
         Get Started
       </button>
-      
     </section>
 
     <!-- Upcoming Study Sessions -->

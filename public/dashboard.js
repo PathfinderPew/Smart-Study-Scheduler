@@ -1,6 +1,7 @@
 // File: public/dashboard.js
-// Add this to dashboard.js or script.js (whichever loads on all pages)
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Burger Menu Toggle
   const burger = document.querySelector(".burger");
   const navLinks = document.querySelector(".nav-links");
   if (burger && navLinks) {
@@ -33,32 +34,33 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchQuotes();
 
   // Refresh quotes on button click
-  refreshQuotesBtn.addEventListener('click', fetchQuotes);
+  if (refreshQuotesBtn) {
+    refreshQuotesBtn.addEventListener('click', fetchQuotes);
+  }
 
   // Update stats on button click
-  updateStatsBtn.addEventListener('click', () => {
-    const newFocus = prompt('Enter your current focus level (1-10)', '5');
-    if (newFocus) {
-      const stats = {
-        focusLevel: newFocus,
-        lastSession: new Date().toLocaleString()
-      };
-      saveStats(stats);
-      displayStats(stats);
-    }
-  });
+  if (updateStatsBtn) {
+    updateStatsBtn.addEventListener('click', () => {
+      const newFocus = prompt('Enter your current focus level (1-10)', '5');
+      if (newFocus) {
+        const stats = {
+          focusLevel: newFocus,
+          lastSession: new Date().toLocaleString()
+        };
+        saveStats(stats);
+        displayStats(stats);
+      }
+    });
+  }
 
   // Animate progress bar to show daily progress
   animateProgressBar();
 
   // ============ HELPER FUNCTIONS ============
 
-  // Fetch quotes from local JSON or external API
   function fetchQuotes() {
     quotesContainer.innerHTML = 'Loading quotes...';
-    // If using a local file, place quotes.json in /public 
-    // If using an API, replace url with the appropriate endpoint
-    const url = 'quotes.json'; // or 'https://api.quotable.io/quotes?limit=3'
+    const url = 'quotes.json';
 
     fetch(url)
       .then(response => {
@@ -68,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
-        // If using an external API, data structure might differ
         quotesContainer.innerHTML = '';
         data.forEach((quoteObj) => {
           const p = document.createElement('p');
@@ -85,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // Load stats from local storage
   function loadStats() {
     const savedStats = JSON.parse(localStorage.getItem('studyStats')) || null;
     if (savedStats) {
@@ -93,20 +93,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Save stats to local storage
   function saveStats(stats) {
     localStorage.setItem('studyStats', JSON.stringify(stats));
   }
 
-  // Display stats in the DOM
   function displayStats(stats) {
     focusLevelElem.textContent = stats.focusLevel;
     lastSessionElem.textContent = stats.lastSession;
   }
 
-  // Animate the progress bar to a random daily progress (for demo)
   function animateProgressBar() {
-    // Example: randomly fill between 0% and 100%
     const progress = Math.floor(Math.random() * 101);
     progressBarInner.style.width = progress + '%';
   }

@@ -13,7 +13,7 @@ body {
   line-height: 1.6;
 }
 
-/* HEADER STYLES */
+/* HEADER */
 header {
   background-color: #007bff; 
   color: #fff;
@@ -21,14 +21,17 @@ header {
   text-align: center;
 }
 
-/* NAVIGATION & DROPDOWN */
-/* Add to styles.css */
+/* NAVIGATION (Burger) */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #222;
   padding: 0.75rem;
+}
+.nav-brand {
+  color: white;
+  font-weight: bold;
 }
 .nav-links {
   list-style: none;
@@ -59,7 +62,7 @@ section {
   margin-bottom: 2rem;
 }
 
-/* BUTTON & ANIMATION */
+/* Buttons & Pulse Animation */
 button {
   background-color: #28a745;
   color: white;
@@ -74,7 +77,30 @@ button:hover {
   background-color: #218838;
 }
 
-/* PROGRESS BAR */
+/* Pulse Keyframes */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+  }
+}
+.pulse-button {
+  animation: pulse 2s infinite;
+  transition: background-color 0.3s;
+}
+.pulse-button:hover {
+  background-color: #218838;
+}
+
+/* Progress Bar */
 .progress-bar-outer {
   width: 100%;
   max-width: 400px;
@@ -82,15 +108,15 @@ button:hover {
   border-radius: 10px;
   margin: 1rem 0;
 }
-
 .progress-bar-inner {
   height: 20px;
-  width: 0%; /* Will be changed dynamically via JS */
+  width: 0%;
   background-color: #28a745;
   border-radius: 10px;
-  transition: width 1s ease-in-out; /* Smooth animate changes to width */
+  transition: width 1s ease-in-out;
 }
 
+/* Form Style (Validation page, etc.) */
 form {
   background-color: #fff;
   padding: 2rem;
@@ -107,39 +133,6 @@ form input, form select {
   margin-bottom: 1rem;
   padding: 0.5rem;
 }
-
-/* Pulse Animation */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
-  }
-  70% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
-  }
-}
-
-.pulse-button {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.25rem;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-  animation: pulse 2s infinite;
-  transition: background-color 0.3s;
-}
-
-.pulse-button:hover {
-  background-color: #218838;
-}
-
 
 /* FOOTER */
 footer {
